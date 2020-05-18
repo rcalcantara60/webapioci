@@ -17,7 +17,7 @@ pipeline {
     stage('Deploy') {
       steps {
         sh '''cd WebApiCore;
-		kubectl apply -f webapicore-lb.yml;'''
+		kubectl create -f webapicore-lb.yml;'''
       }
     }	
   }
