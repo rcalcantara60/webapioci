@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    docker {
+    docker.withRegistry('https://us-ashburn-1.ocir.io', 'OCIR') {
       image 'us-ashburn-1.ocir.io/idtz46tpaghv/webapicore'
     }
 
@@ -9,7 +9,7 @@ pipeline {
     stage('Build') {
       steps {
         sh '''cd WebApiCore;
-docker build -t us-ashburn-1.ocir.io/idtz46tpaghv/webapicore .;'''
+			docker build -t us-ashburn-1.ocir.io/idtz46tpaghv/webapicore .;'''
       }
     }
 
