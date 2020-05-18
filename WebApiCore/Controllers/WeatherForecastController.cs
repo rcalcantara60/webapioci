@@ -30,16 +30,24 @@ namespace WebApiCore.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public Hosts Get()
         {
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            Hosts hosts = new Hosts();
+
+            hosts.WeatherForecasts = new List<WeatherForecast>();
+
+            hosts.WeatherForecasts.AddRange(Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = rng.Next(-20, 55),
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
-            .ToArray();
+            .ToArray());
+
+            hosts.Hostid = "ABC";
+
+            return hosts;
             //List<TipoIndicador> retorno;
             //using (var connection = new Oracle.ManagedDataAccess.Client.OracleConnection("DATA SOURCE=(DESCRIPTION =(ADDRESS_LIST =(ADDRESS =(PROTOCOL = TCP)(Host = 172.30.8.18)(Port = 1521)))(CONNECT_DATA = (SID = hml02)));PASSWORD=usu_arquivo_transparenciahml02;PERSIST SECURITY INFO=True;POOLING=False;USER ID=usu_arquivo_transparencia"))
             //{

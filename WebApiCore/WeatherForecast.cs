@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace WebApiCore
 {
@@ -11,5 +12,11 @@ namespace WebApiCore
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 
         public string Summary { get; set; }
+    }
+
+    public class Hosts
+    {
+        public string Hostid { get; set; }
+        public List<WeatherForecast> WeatherForecasts { get; set; }
     }
 }
