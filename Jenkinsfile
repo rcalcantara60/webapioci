@@ -14,5 +14,11 @@ pipeline {
 		}
       }
     }
+    stage('Deploy') {
+      steps {
+        sh '''cd WebApiCore;
+		kubectl apply -f webapicore-lb.yml;'''
+      }
+    }	
   }
 }
