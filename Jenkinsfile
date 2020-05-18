@@ -9,7 +9,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        withDockerRegistry(credentialsId: 'OCIR', url: 'us-ashburn-1.ocir.io') {
+        withDockerRegistry(credentialsId: 'OCIR', url: 'https://us-ashburn-1.ocir.io') {
 			
 		}
       }
