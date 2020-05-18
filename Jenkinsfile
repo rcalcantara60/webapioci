@@ -10,7 +10,7 @@ pipeline {
     stage('Push') {
       steps {
         withDockerRegistry(credentialsId: 'OCIR', url: 'https://us-ashburn-1.ocir.io') {
-			
+			sh 'docker push us-ashburn-1.ocir.io/idtz46tpaghv/webapicore;'
 		}
       }
     }
